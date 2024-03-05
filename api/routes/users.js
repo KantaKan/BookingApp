@@ -22,14 +22,14 @@ const router = express.Router();
 //   res.send("you're admin kub");
 // });
 
-router.post("/", createUser);
+router.post("/", verifyUser, createUser);
 //Update
-router.put("/:id", updateUser);
+router.put("/:id", verifyUser, updateUser);
 //Delete
-router.put("/:id", deleteUser);
+router.delete("/:id", verifyUser, deleteUser);
 //Get
-router.get("/:id", getUser);
+router.get("/:id", verifyUser, getUser);
 //Get All
-router.get("/", getUsers);
+router.get("/", verifyAdmin, getUsers);
 
 export default router;
