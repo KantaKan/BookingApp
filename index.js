@@ -6,9 +6,15 @@ import hotelsRoute from "./api/routes/hotels.js";
 import roomRoute from "./api/routes/room.js";
 import usersRoute from "./api/routes/users.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 const connect = async () => {
   try {
